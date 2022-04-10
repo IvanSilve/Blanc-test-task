@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientCardComponent } from './client-card.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientCardViewModule } from '@components';
 
 export const routes: Routes = [
 	{
@@ -16,7 +17,7 @@ export const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    CommonModule,  RouterModule.forChild(routes)
+    CommonModule,  RouterModule.forChild(routes), ClientCardViewModule
   ],
   declarations: [ClientCardComponent]
 })

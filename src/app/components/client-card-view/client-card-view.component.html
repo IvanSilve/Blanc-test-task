@@ -1,0 +1,23 @@
+<p-panel [header]="header">
+  <div *ngFor="let row of rows"
+       class="row">
+    <div class="row__field">{{row.field}}</div>
+    <div *ngIf="!row.date; else date" class="row__value">{{row.value}}</div>
+    <ng-template #date>
+      <div class="row__value">{{row.value | date: 'dd MMMM yyyy' : '' : 'ru'}}</div>
+    </ng-template>
+  </div>
+
+  <div class="row">
+    <div class="row__field">номер телефона</div>
+    <div class="row__value">
+      <span class="phone-input">
+        {{data.phone}}
+      </span>
+      <button pButton
+              type="button"
+              class="p-button-secondary"
+              icon="pi pi-pencil"></button>
+    </div>
+  </div>
+</p-panel>
