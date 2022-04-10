@@ -17,7 +17,7 @@ export class ClientCardComponent implements OnInit {
     tin: 1264065395,
     openDate: 1645494401000,
     balance: 67893,
-    phone: 89929339282,
+    phone: 9929339282,
     transactions: [
       {
         paymentDate: 1649494401000,

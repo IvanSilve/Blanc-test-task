@@ -1,1 +1,0 @@
-export const rowKeys = ['tin', 'openDate', 'balance']

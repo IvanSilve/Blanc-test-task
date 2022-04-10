@@ -17,13 +17,10 @@
   <div class="row">
     <div class="row__field">номер телефона</div>
     <div class="row__value">
-      <span class="phone-input">
-        {{data.phone}}
-      </span>
-      <button pButton
-              type="button"
-              class="p-button-secondary"
-              icon="pi pi-pencil"></button>
+      
+
+      <phone-editable-input [phone]="phone"></phone-editable-input>
+
     </div>
   </div>
 </p-panel>

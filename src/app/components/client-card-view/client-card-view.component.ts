@@ -2,10 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit,
+  ViewChild,
 } from '@angular/core';
-import { CLIENTS_COLS } from '../clients-list/constants';
-import { rowKeys } from './constants';
+import { InputMask } from 'primeng/inputmask';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'client-card-view',
@@ -14,9 +14,21 @@ import { rowKeys } from './constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientCardViewComponent {
-  @Input() data: any;
+  @Input() set data(data: any) {
+    this._data = data;
+    this.phone = data.phone;
+  }
+
+
+  private _data: any;
+  phone: number | undefined;
+
+  get data() {
+    return this._data;
+  }
 
   get header() {
     return `Карточка клиента ${this.data.organizationName}`;
   }
+
 }

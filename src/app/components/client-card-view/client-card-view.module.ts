@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientCardViewComponent } from './client-card-view.component';
 import { PanelModule } from 'primeng/panel';
-import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
+import { PhoneEditableInputModule } from '../phone-editable-input/phone-editable-input.module';
 
 @NgModule({
-  imports: [CommonModule, PanelModule, ButtonModule],
+  imports: [CommonModule, PanelModule, FormsModule, PhoneEditableInputModule],
   declarations: [ClientCardViewComponent],
   exports: [ClientCardViewComponent],
 })
