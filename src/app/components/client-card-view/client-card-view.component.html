@@ -17,9 +17,10 @@
   <div class="row">
     <div class="row__field">номер телефона</div>
     <div class="row__value">
-      
 
-      <phone-editable-input [phone]="phone"></phone-editable-input>
+
+      <phone-editable-input [phone]="phone"
+                            (onConfirm)="openPhoneConfirmDialog($event)"></phone-editable-input>
 
     </div>
   </div>

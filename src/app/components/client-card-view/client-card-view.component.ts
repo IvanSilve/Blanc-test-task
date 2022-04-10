@@ -1,7 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { InputMask } from 'primeng/inputmask';
@@ -19,6 +21,7 @@ export class ClientCardViewComponent {
     this.phone = data.phone;
   }
 
+  @Output() onPhoneChange = new EventEmitter<number>();
 
   private _data: any;
   phone: number | undefined;
@@ -31,4 +34,7 @@ export class ClientCardViewComponent {
     return `Карточка клиента ${this.data.organizationName}`;
   }
 
+  openPhoneConfirmDialog(phone: number) {
+    console.log('confirm')
+  }
 }
