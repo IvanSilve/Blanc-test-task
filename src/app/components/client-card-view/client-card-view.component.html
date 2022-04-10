@@ -1,11 +1,17 @@
 <p-panel [header]="header">
-  <div *ngFor="let row of rows"
-       class="row">
-    <div class="row__field">{{row.field}}</div>
-    <div *ngIf="!row.date; else date" class="row__value">{{row.value}}</div>
-    <ng-template #date>
-      <div class="row__value">{{row.value | date: 'dd MMMM yyyy' : '' : 'ru'}}</div>
-    </ng-template>
+  <div class="row">
+    <div class="row__field">ИНН</div>
+    <div class="row__value">{{data.tin}}</div>
+  </div>
+
+  <div class="row">
+    <div class="row__field">дата открытия счета</div>
+    <div class="row__value">{{data.openDate | date: 'dd MMMM yyyy' : '' : 'ru'}}</div>
+  </div>
+
+  <div class="row">
+    <div class="row__field">остаток на счёте</div>
+    <div class="row__value">{{data.balance}}</div>
   </div>
 
   <div class="row">
