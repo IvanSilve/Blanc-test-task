@@ -6,6 +6,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { ClientCard } from 'app/modules/client-card/models/client-card.model';
 import { ConfirmationService } from 'primeng/api';
 import { BehaviorSubject } from 'rxjs';
 import { PhoneEditableInputComponent } from '../phone-editable-input/phone-editable-input.component';
@@ -18,7 +19,8 @@ import { PhoneEditableInputComponent } from '../phone-editable-input/phone-edita
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientCardViewComponent {
-  @Input() set data(data: any) {
+  @Input() set data(data: ClientCard | null) {
+    if(!data) return
     this._data = data;
     this.phone.next(data.phone);
   }
@@ -38,7 +40,7 @@ export class ClientCardViewComponent {
   }
 
   get header() {
-    return `Карточка клиента ${this.data.organizationName}`;
+    return `Карточка клиента ${this.data?.organizationName}`;
   }
 
   openPhoneConfirmDialog(phone: number) {

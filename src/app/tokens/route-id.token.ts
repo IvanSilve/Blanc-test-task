@@ -8,7 +8,7 @@ export const GET_ROUTE_ID = new InjectionToken<number>(
 function getRouteId(): number {
 	const routeId = +inject(ActivatedRoute).snapshot.params['id'];
 	if (routeId) return routeId;
-	throw new Error('В параметрах не найден Id');
+	throw new Error('there is no id in route params');
 }
 
 export const GET_ROUTE_ID_PROVIDER: Provider = {
