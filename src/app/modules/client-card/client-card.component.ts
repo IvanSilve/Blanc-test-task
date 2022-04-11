@@ -26,19 +26,19 @@ export class ClientCardComponent implements OnInit {
         paymentType: 'out'
       },
       {
-        paymentDate: 1649492401000,
+        paymentDate: 1639492401000,
         сounterparty: 'Sber',
         amount: 9000,
         paymentType: 'in'
       },
       {
-        paymentDate: 1649491401000,
+        paymentDate: 1629491401000,
         сounterparty: 'Dia',
         amount: 89600,
         paymentType: 'in'
       },
       {
-        paymentDate: 1649489401000,
+        paymentDate: 1619489401000,
         сounterparty: 'Виа',
         amount: 100000,
         paymentType: 'out'

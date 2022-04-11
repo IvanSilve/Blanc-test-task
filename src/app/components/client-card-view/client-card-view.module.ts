@@ -4,9 +4,17 @@ import { ClientCardViewComponent } from './client-card-view.component';
 import { PanelModule } from 'primeng/panel';
 import { FormsModule } from '@angular/forms';
 import { PhoneEditableInputModule } from '../phone-editable-input/phone-editable-input.module';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TransactionsListModule } from '../transactions-list/transactions-list.module';
 @NgModule({
-  imports: [CommonModule, PanelModule, FormsModule, PhoneEditableInputModule, ConfirmDialogModule],
+  imports: [
+    CommonModule,
+    PanelModule,
+    FormsModule,
+    PhoneEditableInputModule,
+    ConfirmDialogModule,
+    TransactionsListModule
+  ],
   declarations: [ClientCardViewComponent],
   exports: [ClientCardViewComponent],
 })
