@@ -10,7 +10,7 @@ import { ClientCard } from '../models/client-card.model';
 export class ClientsCardService {
   constructor(private http: HttpClient, private store: ClientCardStore) {}
 
-  getClient(clientId: number) {
+  getClient(clientId: number): Observable<ClientCard> {
     return (
       this.http.get(`clients/${clientId}`) as Observable<ClientCard>
     ).pipe(
@@ -19,7 +19,7 @@ export class ClientsCardService {
     );
   }
 
-  updateClient(clientId: number, body: any) {
+  updateClient(clientId: number, body: Partial<ClientCard>) {
     return (
       this.http.put(`clients/${clientId}`, body) as Observable<ClientCard>
     ).pipe(tap((client) => this.store.update(client.id, client)));

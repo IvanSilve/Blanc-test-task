@@ -7,6 +7,7 @@ import {
   Output
 } from '@angular/core';
 import { TableCols, TABLE_COLS } from '@tokens';
+import { ClientsList } from 'app/modules/clients/models';
 import { CLIENTS_COLS } from './constants';
 
 @Component({
@@ -22,7 +23,7 @@ import { CLIENTS_COLS } from './constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientsListComponent {
-  @Input() data: any;
+  @Input() data!: ClientsList | null;
 
   @Output() onClientClick = new EventEmitter<number>()
 

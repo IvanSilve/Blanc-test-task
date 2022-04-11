@@ -1,5 +1,5 @@
 <p-table [columns]="cols"
-         [value]="data">
+         [value]="data || []">
     <ng-template pTemplate="header"
                  let-columns>
         <tr>
@@ -11,7 +11,8 @@
     <ng-template pTemplate="body"
                  let-client
                  let-columns="columns">
-        <tr class="line" (click)="onClientClick.emit(client.id)">
+        <tr class="line"
+            (click)="onClientClick.emit(client.id)">
             <td *ngFor="let col of columns">
                 <ng-container *ngIf="col.date; else default">
                     {{client[col.field] | date: 'dd MMMM yyyy' : '' : 'ru'}}
@@ -19,7 +20,9 @@
 
                 <ng-template #default>
                     <ng-container [ngSwitch]="col.field">
-                        <ng-template ngSwitchCase="balance">balance</ng-template>
+                        <ng-template ngSwitchCase="balance">
+                            <balance-view [balance]="client[col.field]"></balance-view>
+                        </ng-template>
                         <ng-template ngSwitchDefault>{{client[col.field]}}</ng-template>
                     </ng-container>
                 </ng-template>

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { TableCols, TABLE_COLS } from '@tokens';
+import { Transaction } from 'app/modules/client-card/models/client-card.model';
 import { TRANSACTIONS_COLS } from './constants';
 
 @Component({
@@ -15,7 +16,7 @@ import { TRANSACTIONS_COLS } from './constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TransactionsListComponent {
-  @Input() data: any;
+  @Input() data?: Transaction[];
 
   constructor(@Inject(TABLE_COLS) public cols: TableCols[]) {}
 }
