@@ -1,15 +1,19 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClientsListService } from './services';
 
 @Component({
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientsComponent implements OnInit {
-  constructor(private router: Router) {}
+export class ClientsComponent {
+  constructor(
+    private router: Router,
+    private clientListService: ClientsListService
+  ) {}
 
-  ngOnInit() {}
+  clientsList$ = this.clientListService.getClientList();
 
   clientsData = [
     {
