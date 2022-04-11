@@ -9,8 +9,8 @@ import { ClientsListModule } from '@components';
   imports: [
     CommonModule,
     RouterModule.forChild(clientsRoutes),
-    ClientsListModule
+    ClientsListModule,
   ],
-  declarations: [ClientsComponent]
+  declarations: [ClientsComponent],
 })
 export class ClientsModule {}

@@ -18,8 +18,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PhoneEditableInputComponent {
   @Input() set phone(phone: number | undefined | null) {
-    console.log(phone);
-
     if (!phone) return;
 
     this.initialPhone = phone;
