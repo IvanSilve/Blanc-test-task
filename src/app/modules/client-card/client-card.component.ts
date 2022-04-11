@@ -45,4 +45,7 @@ export class ClientCardComponent implements OnInit {
       },
     ],
   };
+  changePhone(phone: number) {
+    console.log(`change phone on ${phone}`)
+  }
 }

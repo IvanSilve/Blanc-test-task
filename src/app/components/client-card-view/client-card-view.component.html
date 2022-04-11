@@ -19,9 +19,14 @@
     <div class="row__value">
 
 
-      <phone-editable-input [phone]="phone"
+      <phone-editable-input [phone]="phone | async"
                             (onConfirm)="openPhoneConfirmDialog($event)"></phone-editable-input>
 
     </div>
   </div>
 </p-panel>
+
+<p-confirmDialog header="Подтверждение"
+                 icon="pi pi-exclamation-triangle"
+                 acceptLabel="Да"
+                 rejectLabel="Отменить"></p-confirmDialog>

@@ -4,8 +4,7 @@
                class="phone-input"
                [size]="25"
                [(ngModel)]="phoneModel"
-               mask="+ 9 (999) 999 99 99"
-               (onBlur)="cancelEdit()"></p-inputMask>
+               mask="+ 9 (999) 999 99 99"></p-inputMask>
   <div class="phone__tools">
 
     <button *ngIf="! (phoneEditMode | async); else phoneEdit"
@@ -23,7 +22,7 @@
             class="success-button p-button-success p-button-rounded"
             icon="pi pi-check"
             (mousedown)="preventDefault($event)"
-            (click)="onConfirm.emit(phoneModel)"></button>
+            (click)="acceptPhone()"></button>
     <button pButton
             type="button"
             class="cancle-button p-button-secondary p-button-rounded"
