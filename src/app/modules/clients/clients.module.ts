@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientsComponent } from './clients.component';
 import { RouterModule } from '@angular/router';
-import { clientsRoutes } from './constants';
+import { clientsRoutes } from './clients-routes';
 import { ClientsListModule } from '@components';
 
 @NgModule({

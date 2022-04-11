@@ -1,0 +1,32 @@
+<div class="phone-input">
+  <p-inputMask #phoneInput
+               [ngClass]="{'pointer-events-none': ! (phoneEditMode | async) }"
+               class="phone-input"
+               [size]="25"
+               [(ngModel)]="phoneModel"
+               mask="+ 9 (999) 999 99 99"></p-inputMask>
+  <div class="phone__tools">
+
+    <button *ngIf="! (phoneEditMode | async); else phoneEdit"
+            pButton
+            type="button"
+            class="p-button-secondary p-button-rounded"
+            icon="pi pi-pencil"
+            (click)="openEdit()"></button>
+  </div>
+
+
+  <ng-template #phoneEdit>
+    <button pButton
+            type="button"
+            class="success-button p-button-success p-button-rounded"
+            icon="pi pi-check"
+            (mousedown)="preventDefault($event)"
+            (click)="acceptPhone()"></button>
+    <button pButton
+            type="button"
+            class="cancle-button p-button-secondary p-button-rounded"
+            icon="pi pi-times"
+            (click)="cancelEdit()"></button>
+  </ng-template>
+</div>

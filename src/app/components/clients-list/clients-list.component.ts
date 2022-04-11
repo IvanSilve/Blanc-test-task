@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Inject,
-  Input
+  Input,
+  Output
 } from '@angular/core';
 import { TableCols, TABLE_COLS } from '@tokens';
 import { CLIENTS_COLS } from './constants';
@@ -21,6 +23,8 @@ import { CLIENTS_COLS } from './constants';
 })
 export class ClientsListComponent {
   @Input() data: any;
+
+  @Output() onClientClick = new EventEmitter<number>()
 
   constructor(@Inject(TABLE_COLS) public cols: TableCols[]) {}
 }

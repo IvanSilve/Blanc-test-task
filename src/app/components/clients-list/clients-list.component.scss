@@ -1,0 +1,7 @@
+.line {
+    cursor: pointer;
+    height: 2rem;
+    &:hover {
+        background-color: lightgrey;
+    }
+}
