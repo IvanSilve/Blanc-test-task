@@ -30,7 +30,7 @@ export class ClientCardViewComponent {
   @ViewChild(PhoneEditableInputComponent)
   private phoneInputComponent!: PhoneEditableInputComponent;
 
-  private _data: any;
+  private _data: ClientCard | null = null;
   phone = new BehaviorSubject<number | null>(null);
 
   constructor(private confirmService: ConfirmationService) {}

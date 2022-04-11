@@ -9,7 +9,7 @@ import { ClientsList } from '../models';
 export class ClientsListService {
   constructor(private http: HttpClient, private store: ClientListStore) {}
 
-  getClientList() {
+  getClientList(): Observable<ClientsList> {
     if (this.store.getAll()) return this.store.selectAll();
     return (this.http.get(`clients`) as Observable<ClientsList>).pipe(
       tap((response) => this.store.set(response)),
