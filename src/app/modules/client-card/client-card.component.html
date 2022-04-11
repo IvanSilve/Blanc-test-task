@@ -1,2 +1,2 @@
-<client-card-view [data]="mockData"
+<client-card-view [data]="clientCard$ | async"
                   (onPhoneChange)="changePhone($event)"></client-card-view>

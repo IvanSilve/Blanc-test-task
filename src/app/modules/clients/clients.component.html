@@ -1,2 +1,2 @@
-<clients-list [data]="clientsData"
+<clients-list [data]="clientsList$ | async"
               (onClientClick)="openCard($event)"></clients-list>

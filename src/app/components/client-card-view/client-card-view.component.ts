@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { PhoneEditableInputComponent } from '../phone-editable-input/phone-editable-input.component';
 
 @Component({
