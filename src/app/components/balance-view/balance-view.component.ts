@@ -31,19 +31,14 @@ export class BalanceViewComponent {
     }
 
     const beforeDotFormatted: string[] = [];
-    for (let i = positiveBeforeDot.length - 1; i >= 0; i--) {
-      beforeDotFormatted.unshift(
-        (positiveBeforeDot.length - i - 1) % 3 === 0 &&
-          i !== positiveBeforeDot.length - 1
-          ? positiveBeforeDot[i] + ' '
-          : positiveBeforeDot[i]
-      );
-    }
+    positiveBeforeDot.split('').reverse().forEach((item, index) => {
+      if(index % 3 === 0 && index !== 0) beforeDotFormatted.unshift(' ')
+      beforeDotFormatted.unshift(item)
+    })
 
     if (this.balance && this.balance < 0) {
       beforeDotFormatted.unshift('- ');
     }
-    
 
     const formattedAll =
       beforeDotFormatted.join('') +
