@@ -15,12 +15,21 @@ export class BalanceViewComponent {
 
   get formattedBalance() {
     const beforeDot = Math.floor(this.balance || 0).toString();
-    let minus = '';
     let positiveBeforeDot = beforeDot;
     if (this.balance && this.balance < 0) {
       positiveBeforeDot = beforeDot.slice(1);
-      minus = '- ';
     }
+
+    if (this.minBeforeDot) {
+      const missingCharts = Math.max(
+        this.minBeforeDot - positiveBeforeDot.length + 1,
+        0
+      );
+      for (let i = 0; i < missingCharts; i++) {
+        positiveBeforeDot = '0' + positiveBeforeDot;
+      }
+    }
+
     const beforeDotFormatted: string[] = [];
     for (let i = positiveBeforeDot.length - 1; i >= 0; i--) {
       beforeDotFormatted.unshift(
@@ -30,16 +39,11 @@ export class BalanceViewComponent {
           : positiveBeforeDot[i]
       );
     }
-    if (this.minBeforeDot) {
-      const missingCharts = Math.max(
-        this.minBeforeDot - beforeDotFormatted.length + 1,
-        0
-      );
-      for (let i = 0; i < missingCharts; i++) {
-        beforeDotFormatted.unshift('0');
-      }
+
+    if (this.balance && this.balance < 0) {
+      beforeDotFormatted.unshift('- ');
     }
-    beforeDotFormatted.unshift(minus);
+    
 
     const formattedAll =
       beforeDotFormatted.join('') +
