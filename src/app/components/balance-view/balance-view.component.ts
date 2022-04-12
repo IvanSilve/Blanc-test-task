@@ -15,31 +15,30 @@ export class BalanceViewComponent {
 
   get formattedBalance() {
     const beforeDot = Math.floor(this.balance || 0).toString();
-    let minus = '';
     let positiveBeforeDot = beforeDot;
     if (this.balance && this.balance < 0) {
       positiveBeforeDot = beforeDot.slice(1);
-      minus = '- ';
     }
-    const beforeDotFormatted: string[] = [];
-    for (let i = positiveBeforeDot.length - 1; i >= 0; i--) {
-      beforeDotFormatted.unshift(
-        (positiveBeforeDot.length - i - 1) % 3 === 0 &&
-          i !== positiveBeforeDot.length - 1
-          ? positiveBeforeDot[i] + ' '
-          : positiveBeforeDot[i]
-      );
-    }
+
     if (this.minBeforeDot) {
       const missingCharts = Math.max(
-        this.minBeforeDot - beforeDotFormatted.length + 1,
+        this.minBeforeDot - positiveBeforeDot.length + 1,
         0
       );
       for (let i = 0; i < missingCharts; i++) {
-        beforeDotFormatted.unshift('0');
+        positiveBeforeDot = '0' + positiveBeforeDot;
       }
     }
-    beforeDotFormatted.unshift(minus);
+
+    const beforeDotFormatted: string[] = [];
+    positiveBeforeDot.split('').reverse().forEach((item, index) => {
+      if(index % 3 === 0 && index !== 0) beforeDotFormatted.unshift(' ')
+      beforeDotFormatted.unshift(item)
+    })
+
+    if (this.balance && this.balance < 0) {
+      beforeDotFormatted.unshift('- ');
+    }
 
     const formattedAll =
       beforeDotFormatted.join('') +
